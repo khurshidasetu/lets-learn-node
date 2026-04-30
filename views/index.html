@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us – Always Giving Beyond Smiles</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Source+Sans+3:wght@400;600;700&display=swap"
+    rel="stylesheet" />
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Source Sans 3', sans-serif;
+      background: #f5f5f3;
+      color: #333;
+    }
+
+    /* ── HERO SECTION ─────────────────────────────────────── */
+    .about-hero {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: stretch;
+      background: #f5f5f3;
+      min-height: 560px;
+      gap: 0;
+    }
+
+    /* ── LEFT: image column — flush left, full height, extra bottom for badge ── */
+    .hero-image-wrap {
+      position: relative;
+      flex: 0 0 55%;
+      max-width: 55%;
+      min-height: 100%;
+      max-height: 650px;
+      display: flex;
+      flex-direction: column;
+      padding-bottom: 80px;
+      padding-left: 50px;
+    }
+
+    .hero-image-wrap img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      flex: 1;
+    }
+
+    /* ── PLAY BUTTON (Premium Glassmorphism) ── */
+    .play-btn-wrapper {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100px;
+      height: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+    }
+
+    .play-pulse {
+      position: absolute;
+      width: 80px;
+      height: 80px;
+      background: rgba(255, 255, 255, 0.4);
+      border-radius: 50%;
+      animation: play-pulse 2s infinite;
+      pointer-events: none;
+    }
+
+    @keyframes play-pulse {
+      0% {
+        transform: scale(1);
+        opacity: 0.6;
+      }
+
+      100% {
+        transform: scale(1.8);
+        opacity: 0;
+      }
+    }
+
+    .play-btn {
+      position: relative;
+      width: 80px;
+      height: 80px;
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .play-btn::before {
+      content: '';
+      position: absolute;
+      width: 54px;
+      height: 54px;
+      background: rgba(45, 45, 45, 0.9);
+      border-radius: 50%;
+      transition: inherit;
+    }
+
+    .play-btn svg {
+      position: relative;
+      width: 28px;
+      height: 28px;
+      margin-left: 4px;
+      /* Optical centering */
+      transition: transform 0.4s ease;
+      z-index: 1;
+    }
+
+    .play-btn:hover {
+      transform: scale(1.1);
+      background: rgba(255, 255, 255, 0.3);
+    }
+
+    .play-btn:hover::before {
+      background: #000;
+      transform: scale(1.05);
+    }
+
+    .play-btn:hover svg {
+      transform: scale(1.1);
+    }
+
+    /* "Serving Smiles Since 2015" badge — centered on bottom edge, overlapping below image */
+    .since-badge {
+      position: absolute;
+      bottom: 60px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #f6f0e2;
+      padding: 18px 40px;
+      white-space: nowrap;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+    }
+
+    .since-badge span {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #015f6b;
+      letter-spacing: 0.01em;
+    }
+
+    /* ── RIGHT: text column ─────────────────────────────── */
+    .hero-text {
+      flex: 0 0 45%;
+      max-width: 45%;
+      padding: 52px 5% 52px 48px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .hero-text h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.9rem, 3.2vw, 3rem);
+      font-weight: 700;
+      line-height: 1.15;
+      color: #2d2d2d;
+      margin-bottom: 20px;
+    }
+
+    .hero-text .mission {
+      font-size: 0.98rem;
+      color: #666;
+      line-height: 1.65;
+      margin-bottom: 28px;
+    }
+
+    .hero-text .highlight-block {
+      border-left: 3px solid #e00000;
+      padding-left: 18px;
+      margin-bottom: 36px;
+    }
+
+    .hero-text .highlight-block p {
+      font-size: 0.97rem;
+      font-weight: 700;
+      color: #2d2d2d;
+      line-height: 1.6;
+    }
+
+    /* CTA button */
+    .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: #2d2d2d;
+      border: 2px solid #2d2d2d;
+      border-radius: 50px;
+      padding: 9px 14px 9px 20px;
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #fff;
+      text-decoration: none;
+      cursor: pointer;
+      align-self: flex-start;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .cta-btn:hover {
+      background: transparent;
+      color: #2d2d2d;
+    }
+
+    .cta-btn .arrow-circle {
+      width: 28px;
+      height: 28px;
+      background: transparent;
+      border: 2px solid #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: background 0.2s, border-color 0.2s;
+    }
+
+    .cta-btn:hover .arrow-circle {
+      background: transparent;
+      border-color: #2d2d2d;
+    }
+
+    .cta-btn .arrow-circle svg path {
+      stroke: white;
+      width: 24px;
+      height: 24px;
+    }
+
+    .cta-btn:hover .arrow-circle svg path {
+      stroke: #2d2d2d;
+    }
+
+    /* ── AWARDS BAR ─────────────────────────────────────── */
+    .awards-bar {
+      background: #015f6b;
+      padding: 44px 5%;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px 60px;
+    }
+
+    @media (max-width:900px) {
+      .awards-bar {
+        justify-content: center;
+      }
+    }
+
+    .abo-logo {
+      height: 70px;
+      width: auto;
+      filter: invert(1);
+      opacity: 0.9;
+      flex-shrink: 0;
+    }
+
+    .aao-logo {
+      height: 60px;
+      width: auto;
+      filter: invert(1);
+      opacity: 0.9;
+      flex-shrink: 0;
+    }
+
+    .logo-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .award-item {
+      text-align: center;
+      color: #fff;
+      flex-shrink: 0;
+    }
+
+    .award-item .award-line1,
+    .award-item .award-line2 {
+      font-size: 0.8rem;
+      font-weight: 400;
+      line-height: 1.4;
+      opacity: 0.9;
+    }
+
+    .award-item .award-year {
+      font-size: 1.45rem;
+      font-weight: 700;
+      margin-top: 2px;
+    }
+
+    /* ── RESPONSIVE ─────────────────────────────────────── */
+    @media (max-width: 860px) {
+      .about-hero {
+        flex-direction: column;
+      }
+
+      .hero-image-wrap {
+        flex: unset;
+        max-width: 100%;
+        width: 100%;
+        min-height: 300px;
+        padding-bottom: 80px;
+        padding-left: 50px;
+      }
+
+      .hero-image-wrap img {
+        height: 300px;
+      }
+
+      .hero-text {
+        flex: unset;
+        max-width: 100%;
+        width: 100%;
+        padding: 36px 5% 48px;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .since-badge {
+        padding: 14px 24px;
+      }
+
+      .since-badge span {
+        font-size: 0.95rem;
+      }
+
+      .hero-text h1 {
+        font-size: 1.85rem;
+      }
+
+      .awards-bar {
+        gap: 32px 40px;
+        padding: 36px 5%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ── HERO ──────────────────────────────────────────────── -->
+  <section class="about-hero">
+
+    <div class="hero-image-wrap">
+      <img
+        src="data:image/webp;base64,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"
+        alt="Orthodontist treating a patient" />
+      <div class="play-btn-wrapper">
+        <div class="play-pulse"></div>
+        <div class="play-btn" aria-label="Play video">
+          <svg viewBox="0 0 24 24">
+            <path d="M8 5v14l11-7z" fill="#fff" />
+          </svg>
+        </div>
+      </div>
+
+      <div class="since-badge">
+        <span>Serving Smiles Since 2015</span>
+      </div>
+    </div>
+
+    <div class="hero-text">
+      <h1>Always Giving<br>Beyond Smiles</h1>
+
+      <p class="mission">
+        Our mission is to create an environment where patients enjoy great oral health, a sense of belonging, and
+        overall well-being.
+      </p>
+
+      <div class="highlight-block">
+        <p>Begin your journey to a healthier, more confident smile with our accessible hours, multiple locations, and
+          flexible financing options.</p>
+      </div>
+
+      <a href="#" class="cta-btn">
+        Discover the Difference
+        <span class="arrow-circle">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+            <path d="M3 7H11M11 7L7 3M11 7L7 11" stroke="#333" stroke-width="1.8" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+        </span>
+      </a>
+    </div>
+
+  </section>
+
+  <!-- ── AWARDS BAR ─────────────────────────────────────────── -->
+  <div class="awards-bar">
+
+    <div class="logo-wrap">
+      <img src="https://www.crocoorthodontics.com/wp-content/uploads/2024/09/croco-abo-logo.svg" alt="American Board of Orthodontists Logo" class="abo-logo">
+    </div>
+
+    <div class="logo-wrap">
+      <img src="https://www.crocoorthodontics.com/wp-content/uploads/2024/09/croco-aao-logo.svg" alt="American Association of Orthodontists Logo" class="aao-logo">
+    </div>
+
+    <div class="award-item">
+      <div class="award-line1">Best Orthodontist</div>
+      <div class="award-line2">Office of Bucks County</div>
+      <div class="award-year">2022</div>
+    </div>
+
+    <div class="award-item">
+      <div class="award-line1">Best Orthodontist</div>
+      <div class="award-line2">Office of Bucks County</div>
+      <div class="award-year">2023</div>
+    </div>
+
+    <div class="award-item">
+      <div class="award-line1">Best Orthodontist</div>
+      <div class="award-line2">Office of Bucks County</div>
+      <div class="award-year">2024</div>
+    </div>
+
+  </div>
+
+</body>
+
+</html>
