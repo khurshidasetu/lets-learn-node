@@ -1,8 +1,19 @@
 const http = require('http');
 const fs = require('fs');
+const _ = require('lodash');
 
 const server = http.createServer((req, res) => {
-    console.log(req.url, req.method, "request made")
+    // console.log(req.url, req.method, "request made")
+
+    const num = _.random(1, 10)
+    console.log(num)
+
+    const greet = _.once(() => {
+        console.log("hello once")
+    })
+
+    greet();
+    greet();
 
     res.setHeader('Content-Type', 'text/html');
 

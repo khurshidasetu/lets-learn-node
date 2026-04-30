@@ -1,0 +1,29 @@
+{
+  "name": "crash-course",
+  "version": "1.0.0",
+  "description": "learning node",
+  "main": "file.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/khurshidasetu/lets-learn-node.git"
+  },
+  "keywords": [
+    "node"
+  ],
+  "author": "setu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/khurshidasetu/lets-learn-node/issues"
+  },
+  "homepage": "https://github.com/khurshidasetu/lets-learn-node#readme",
+  "dependencies": {
+    "lodash": "^4.18.1"
+  }
+}
