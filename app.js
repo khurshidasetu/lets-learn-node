@@ -3,6 +3,8 @@ const app = express();
 
 app.listen(3000);
 
+app.use()
+
 app.get('/', (req, res)=>{
     console.log("home page",req.url)
 
